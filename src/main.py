@@ -1,4 +1,4 @@
-from window import *
+from graphics import *
 
 def main():
     #p1= point(5,5)
