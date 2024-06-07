@@ -1,5 +1,6 @@
 from tkinter import *
 
+#creating window
 class window:
     def __init__(self, height, width):
         self.root = Tk()
@@ -54,21 +55,35 @@ class cell:
         self.x2 = x + 40
         self.y2 = y - 40
         self.win = win
+        self.visited = False
       
 
     def draw(self):
         if self.right_wall:
             ln = line(point(self.x2,self.y1),point(self.x2, self.y2))
-            self.win.draw_line(ln,"black")
+            self.win.draw_line(ln,"black")           
+        else:
+            ln = line(point(self.x2,self.y1),point(self.x2, self.y2))
+            self.win.draw_line(ln,"#d9d9d9")
         if self.left_wall:
             ln = line(point(self.x1, self.y1),point(self.x1, self.y2))
             self.win.draw_line(ln,"black")
+        else: 
+            ln = line(point(self.x1, self.y1),point(self.x1, self.y2))
+            self.win.draw_line(ln,"#d9d9d9")
         if self.top_wall:
             ln = line(point(self.x1, self.y1), point(self.x2, self.y1))
             self.win.draw_line(ln,"black")
+        else:
+            ln = line(point(self.x1, self.y1), point(self.x2, self.y1))
+            self.win.draw_line(ln,"#d9d9d9")
         if self.bottom_wall:
             ln = line(point(self.x1, self.y2), point(self.x2, self.y2))
             self.win.draw_line(ln,"black")
+        else:
+            ln = line(point(self.x1, self.y2), point(self.x2, self.y2))
+            self.win.draw_line(ln,"#d9d9d9")
+
 
 
     def draw_move(self, to_cell, undo=False):
